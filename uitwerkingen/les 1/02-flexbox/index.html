@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="nl">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title></title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+
+<div class="playground">
+
+  <div class="controls">
+    <div class="control-block">wrap</div>
+    <div class="control-block">nowrap</div>
+    <div class="control-block">center</div>
+    <div class="control-block">space-between</div>
+    <div class="control-block">flex-start</div>
+    <div class="control-block">flex-end</div>
+  </div>
+
+</div>
+
+<style>
+
+.playground {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 20px;
+  max-width: 320px;
+}
+
+.controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.control-block {
+  padding: 10px 14px;
+  background: #dbeafe;
+  border: 1px solid #93c5fd;
+  border-radius: 8px;
+  font-size: 14px;
+  cursor: pointer;
+  user-select: none;
+}
+
+</style>
+
+</body>
+
+</html>
