@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <title>Stopwatch</title>
+  <style>
+    body {
+      font-family: Arial;
+      text-align: center;
+      margin-top: 50px;
+    }
+    #time {
+      font-size: 48px;
+      margin-bottom: 20px;
+    }
+    button {
+      font-size: 16px;
+      padding: 10px 20px;
+      margin: 5px;
+    }
+  </style>
+</head>
+<body>
+
+  <div id="time">0</div>
+
+  <button onclick="stopwatch.start()">Start</button>
+
+  <script>
+    const stopwatch = (function () {
+      // private variabelen
+      let startTime = null;     // Date
+      let running = false;      // boolean
+      let elapsed = 0;          // milliseconds opgeslagen bij stop
+
+      // private helper
+      function getCurrentSeconds() {
+        if (!startTime) return Math.floor(elapsed / 1000);
+
+        const now = new Date();
+        const diff = running
+          ? elapsed + (now - startTime)
+          : elapsed;
+
+        return Math.floor(diff / 1000);
+      }
+
+      // public API
+      return {
+        start: function () {
+          if (running) return;
+          running = true;
+          startTime = new Date();
+        },
+
+        // stop en reset student uitwerking
+
+        get currentTime() {
+          return getCurrentSeconds();
+        }
+      };
+    })();
+
+    // UI update loop
+    setInterval(() => {
+      document.getElementById("time").textContent = stopwatch.currentTime;
+    }, 200);
+  </script>
+
+</body>
+</html>

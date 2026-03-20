@@ -5,82 +5,13 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title></title>
-  <link rel="stylesheet" href="css/style.css">
-    <script src="js/app.js"></script>
+  <link rel="stylesheet" href="style.css">
+  <script src="js/app.js"></script>
 </head>
 
 <body>
 
-  <!-- <style>
-    .calculator {
-      display: grid;
-      grid-template-columns: repeat(3, 60px);
-      gap: 10px;
-      width: max-content;
-    }
-
-    .button {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      width: 60px;
-      height: 60px;
-      background: #eee;
-      border: 1px solid #ccc;
-      border-radius: 8px;
-      font-size: 24px;
-      cursor: pointer;
-      user-select: none;
-    }
-
-    .button:hover {
-      background: #ddd;
-    }
-
-    .zero {
-      grid-column: span 3;
-    }
-
-    .display {
-      width: 190px;
-      height: 60px;
-      margin-bottom: 10px;
-      padding: 10px;
-
-      color: #0f0;
-
-      font-size: 28px;
-      font-family: monospace;
-
-      display: flex;
-      align-items: center;
-      justify-content: flex-end;
-
-      border-radius: 8px;
-      box-sizing: border-box;
-    }
-  </style> -->
-
-  <!-- <script>
-
-    // Javascript code om de knoppen van de calculator te laten werken
-    const buttons = document.querySelectorAll(".calculator .button");
-
-    function handleButtonClick(event) {
-      const value = event.target.textContent;
-      console.log("Clicked:", value);
-    }
-
-    buttons.forEach(button => {
-      button.addEventListener("click", handleButtonClick);
-    });
-
-    // Functie om de waarde op het display te tonen
-    function showValue(value) {
-      const display = document.getElementById("display");
-      display.textContent = value;
-    }
-  </script> -->
+  
 
   <p>Hello world! This is HTML5 Boilerplate.</p>
 
@@ -104,6 +35,33 @@
 
     <div class="button zero">0</div>
   </div>
+
+    <script>
+
+    // debugger;
+
+    // Javascript code om de knoppen van de calculator te laten werken
+    const buttons = document.querySelectorAll(".calculator .button");
+
+    function handleButtonClick(event) {
+      debugger;
+      const value = event.target.textContent;
+      console.log("Clicked:", value);
+
+      // showValue functie aan te roepen
+    }
+
+    buttons.forEach(
+      // in dit geval is handleButtonClick een callback functie.
+      button => {button.addEventListener("click", handleButtonClick);
+    });
+
+    // Functie om de waarde op het display te tonen
+    function showValue(value) {
+      const display = document.getElementById("display");
+      display.textContent = value;
+    }
+  </script>
 
 </body>
 
