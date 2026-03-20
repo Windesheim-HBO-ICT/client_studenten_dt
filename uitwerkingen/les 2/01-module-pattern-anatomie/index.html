@@ -7,14 +7,99 @@
   <title></title>
   <!-- <link rel="stylesheet" href="style.css"> -->
   <!-- <script src="js/app.js"></script> -->
+   <!-- <script src="js/stripe.js"></script>
+    <script src="js/mollie.js"></script> -->
 </head>
 
 <body>
 
-  
-
   <p>Hello world! This is HTML5 Boilerplate.</p>
 
+
+  <script>
+
+    //////////////////////////////////////
+    // Scopes
+    /////////////////////////////////////
+    // Global scope
+    let fiets = 1;
+
+    // Function van stripe
+    const greet = () => {
+
+      // Function scope
+      console.log("hallo wereld from stripe")
+      console.log(fiets)
+
+    }
+
+    /////////////////////////////////////
+    // Basis module
+    /////////////////////////////////////
+    ((naam) => {
+      const melding = `Hallo ${naam}, wereld van module`;
+      
+      // Bewijs 1: functie in module wordt zonder 
+      // aanroep gestart.
+      console.log(melding);
+    })('Gert')
+
+    // console.log(melding)
+    // Bewijs 2: variabele is private in module
+    // console.log(naam)
+    // Bewijs 3: argumenten/parameters zijn private
+
+    //////////////////////////////////////
+    // Stripe module met publieke waarden
+    //////////////////////////////////////
+    // const stripe = (()=>{
+
+    //   // Return waarde vanuit module scope naar global scope
+    //   return {
+    //     betaal: () => {
+    //       console.log("BETAALD")
+    //     }
+    //   }
+
+    // })()
+    // console.log(stripe)
+
+    //////////////////////////////////////
+    // Mollie module met skelet module
+    //////////////////////////////////////
+    const mollie = (() => {
+
+      // configuratie
+      config = {
+        valuta : 'euro',
+        saldo: 100
+      }
+
+      // private functies
+      const betalingVerwerken = (bedrag) => {
+        config.saldo = config.saldo - bedrag;
+      }
+
+      // publieke funties
+      const betaal = (bedrag) => {
+        betalingVerwerken(bedrag)
+        console.log('Het saldo is nu ' + config.saldo);
+      }
+
+      // return object
+      return {
+        betaal: betaal
+      }
+
+    })()
+
+    mollie.betaal(10)
+    
+
+
+
+
+  </script>
 
 </body>
 
